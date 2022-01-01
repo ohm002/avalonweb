@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <title>Hi</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        button {
+            border: white solid 1px;
+            background-color: rgb(0, 0, 0);
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+            font-family: 'Lato', sans-serif;
+        }
+
+        button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        i {
+            font-size: larger;
+        }
+    </style>
+</head>
+<script>
+    function fadeOut() {
+        document.getElementById("center").className = "animate__animated animate__fadeOutDown";
+    }
+</script>
+
+<body style="display: grid; place-items: center; font-family: 'Lato', sans-serif;">
+    <center class="animate__animated animate__fadeInUp" id="center">
+        <span style="font-size: 12pt;">Please Login via osu! account in order to unlock most of the features in this website.</span><br>
+        <button onclick="window.location.href='/loginpage/login'; fadeOut()" style="margin: 20px !important;" id="button">I would like to login</button>
+        <button onclick="window.location.href='/index'; fadeOut()" style="margin: 20px !important;" id="button">No</button>
+    </center>
+    <!-- Don't try to inspect through the source code
+    Nothing is worth knowing here -->
+</body>
+
+</html>

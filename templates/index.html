@@ -1,0 +1,9 @@
+avalon REAL osu! map[ping] [[ CONTEST ]]
+
+{% if session["logged"] %}
+    <a href="/loginpage/logout"> logout</a>
+    <br> YOU ARE {{session["username"]}} 
+{% else %}
+    <a href="/loginpage/login"> login</a>
+    <br> WHO ARE YOU
+{% endif %}

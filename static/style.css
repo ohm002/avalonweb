@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text&display=swap');
+
+:root {
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+html {
+    font-family: 'Arial', sans-serif;
+    font-size: 10pt;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    margin: 10px;
+}
+
+.title {
+    background-color: #ffa86a;
+    padding: 10px;
+    color: black;
+}
+
+.hypebox-hype {
+    background-color: rgba(255, 168, 106, 0.1);
+    padding: 15px;
+    margin: 10px;
+}
+
+.hypebox {
+    border: rgba(255, 168, 106, 1) solid 1px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.hypebox-content img {
+    margin-right: 10px;
+    border-radius: 5px;
+    box-shadow: black;
+}
+
+.hypebox-content-message {
+    max-width: 1000px;
+    line-height: 25px;
+}
+
+.hypebox-content-usergroup {
+    display: flex;
+    align-self: center;
+    font-size: 10pt;
+}
+
+.hypebox-content-usergroup-BN,
+.hypebox-content-usergroup-FA,
+.hypebox-content-usergroup-NAT,
+.hypebox-content-usergroup-GMT,
+.hypebox-content-usergroup-DEV,
+.hypebox-content-usergroup-LVD,
+.hypebox-content-usergroup-PPY,
+.hypebox-content-usergroup-ALM {
+    display: flex;
+    align-self: center;
+    font-size: 10pt;
+    background-color: rgba(255, 168, 106, 1);
+    padding: 5px;
+    color: black !important;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.hypebox-content-usercard {
+    width: 250px;
+    height: 70%;
+    display: flex;
+    padding: 10px;
+    margin-right: 10px;
+    background-color: rgba(255, 168, 106, 0.3);
+    align-items: flex-start;
+}
+
+.hypebox-title {
+    margin: 10px;
+}
+
+a {
+    color: #ffa86a !important;
+    text-decoration: none !important;
+}
+
+.hypebox-message-timestamp:hover {
+    background-color: rgba(255, 168, 106, 0.1);
+    transition-duration: 0.25s;
+}
+
+.hypebox-message-timestamp {
+    background-color: rgba(255, 168, 106, 0.2);
+    font-size: 70%;
+    padding: 4px;
+}
+
+.hypebox-content span {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.replybox {
+    padding: 20px;
+    background-color: rgba(255, 168, 106, 0.2);
+}
+
+.reply-user {
+    width: 200px;
+    color: rgba(255, 168, 106);
+}
+
+.modlink-button {
+    padding: 10px;
+    margin: 5px;
+    color: black !important;
+    background-color: rgba(255, 168, 106, 1);
+    width: fit-content;
+    display: inline-block;
+}
+
+.reply {
+    padding: 5px;
+    display: flex;
+}
+
+.reply-resolved {
+    position: relative;
+    /*padding-left: 10px; */
+    /*padding-right: 10px; */
+    /*width: 100%;*/
+    text-align: left;
+}
+
+.reply-resolved hr {
+    border: rgba(255, 168, 106, 1) solid 1px;
+}
+
+.reply-resolved span {
+    position: absolute;
+    top: -7px;
+    background: rgb(97, 72, 59, 1);
+    /*padding: 0 10px;*/
+    padding-right: 5px;
+    font-size: 12px;
+}
+
+.hypebox-content {
+    display: flex;
+    margin: 10px;
+    align-items: center;
+}
+
+.card-container {
+    display: flex;
+    width: 100%;
+}
+
+.card {
+    border: white solid 1px;
+    padding: 25px;
+    margin: 20px;
+    width: 300px;
+    height: 200px;
+}
+
+.card-header {
+    font-size: 110%;
+}
+
+.example {
+    font-weight: bolder;
+    color: white !important;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button {
+    background-color: rgb(0, 0, 0);
+    border: #ffa86a solid 1px;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #ffa86a;
+    border-radius: 5px;
+    margin-right: 2px;
+}
+
+.button:hover {
+    background: #ffa86a;
+    color: white;
+}
+
+.slider {
+    -webkit-appearance: none;
+    border-radius: 5px;
+    background: #222129;
+    height: 10px;
+    border: #ffa86a solid 1px;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 17px;
+    height: 17px;
+    background: #ffa86a;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+#audiopercent {
+    color: #ffa86a;
+    font-size: small;
+}
+
+.attention{
+    border: solid white 1px;
+    padding: 10px;
+    color: white;
+    line-height: 150%;
+}

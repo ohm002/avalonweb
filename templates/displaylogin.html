@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <title>Hi</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        button {
+            border: white solid 1px;
+            background-color: rgb(0, 0, 0);
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+            font-family: 'Lato', sans-serif;
+        }
+
+        button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        i {
+            font-size: larger;
+        }
+    </style>
+</head>
+
+<body style="display: grid; place-items: center; font-family: 'Lato', sans-serif;">
+    <center class="animate__animated animate__fadeInDown" id="center">
+        <span style="font-size: 12pt;">You are being logged in as {{username}}</span><br>
+        <img src="https://a.ppy.sh/{{id}}" style="margin: 20px; border-radius: 5px;" width="150px">
+    </center>
+    <!-- Don't try to inspect through the source code
+    Nothing is worth knowing here -->
+</body>
+<script>
+    document.getElementById("center").className = "animate__animated animate__fadeInDown";
+    setTimeout(function () {
+        document.getElementById("center").className = "animate__animated animate__fadeOutDown";
+        window.location.replace("/index");
+    }, 2000);
+</script>
+
+</html>

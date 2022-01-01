@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <meta charset="UTF-8">
+</head>
+
+<body>
+   <div class="audiocontainer" style="display: flex; align-items: baseline; justify-content: flex-start;">
+      <input type="button" value="▶" onclick="play()" class="button">
+      <input type="button" value="||" onclick="pause()" class="button">
+      <input type="range" min="1" max="100" value="10" class="slider" id="VolumeRange">
+      <div id="audiopercent">10%</div>
+      <script>
+         function play() {
+            var slider = document.getElementById("VolumeRange");
+            var audio = document.getElementById("audio");
+            audio.volume = slider.value / 100;
+            audio.play();
+            slider.oninput = function () {
+               audio.volume = this.value / 100;
+               if (this.value < 10){
+               document.getElementById("audiopercent").innerHTML = "0" + this.value + "%";
+               } else document.getElementById("audiopercent").innerHTML = this.value + "%";
+            }
+         }
+
+         function pause() {
+            var audio = document.getElementById("audio");
+            audio.pause();
+            var slider = document.getElementById("VolumeRange");
+            slider.oninput = function () {
+               audio.volume = this.value / 100;
+               document.getElementById("audiopercent").innerHTML = this.value + "%";
+            }
+         }
+
+         var slider = document.getElementById("VolumeRange");
+
+         slider.oninput = function () {
+            document.getElementById("audiopercent").innerHTML = this.value + "%";
+
+         }
+      </script>
+      <audio id="audio" src="https://b.ppy.sh/preview/{{ beatmapsetid }}.mp3"></audio><br><br>
+   </div>
+   <img src="https://assets.ppy.sh/beatmaps/{{ beatmapsetid }}/covers/cover.jpg" style="width: 100%;">
+   <a href="https://osu.ppy.sh/beatmapsets/{{ beatmapsetid }}">
+      <div class="title">
+         <center>{{ title }}<br></center>
+      </div>
+   </a><br>
+   <center>
+      <a href="/{{ beatmapsetid }}/{{ beatmapid }}/hype">
+         <div class="modlink-nav">
+            <div class="modlink-button">Hype</div>
+      </a>
+      <a href="/{{ beatmapsetid }}/{{ beatmapid }}/suggestion">
+         <div class="modlink-button">Suggestion</div>
+      </a>
+      <a href="/{{ beatmapsetid }}/{{ beatmapid }}/problem">
+         <div class="modlink-button">Problem</div>
+      </a>
+      <a href="/{{ beatmapsetid }}/{{ beatmapid }}/praise">
+         <div class="modlink-button">Praise</div>
+      </a></a>
+   </center>
+   <div class="hypebox">
+      <span class="hypebox-title">{{typemod}}s</span><br><br>
+      {% for hype in hypes %}
+      <a href="https://osu.ppy.sh/users/{{hype['data']['user_id']}}" class="a-usercard">
+         <div class="hypebox-hype">
+            <div class="hypebox-content">
+               <div class="hypebox-content-usercard">
+                  <div class="hypebox-content-usercard-username">{{hype['username']}}
+                     <div class="hypebox-content-usergroup">
+                        {% for gr in hype['group'] %}
+                        <div class="hypebox-content-usergroup-{{gr}}">{{gr}}</div>
+                        {% endfor %}
+                     </div>
+                  </div>
+               </div>
+      </a>
+      <span class="hypebox-content-message" id="mod{{hype['id']}}" style="display:inline">
+         <script>
+            $("#mod{{hype['id']}}").append(`{{hype['message']}}  `);
+         </script>
+      </span>
+   </div>
+   <div class="replybox">
+      {% for reply in hype['replies'][1:] %}
+      {% if reply['message']|string == "{'type': 'resolved', 'value': True}" %}
+      <div class="reply-resolved">
+         <hr>
+         <span>
+            <color style="color: rgba(255, 168, 106, 1);">resolved by</color> <a href="reply['username']"
+               style="color:white !important;"><b>{{reply['username']}}</b></a>
+         </span>
+      </div>
+      {% elif reply['message']|string == "{'type': 'resolved', 'value': False}" %}
+      <div class="reply-resolved">
+         <hr>
+         <span>
+            <color style="color: rgba(255, 168, 106, 1);">reopened by</color> <a href="reply['username']"
+               style="color:white !important;"><b>{{reply['username']}}</b></a>
+         </span>
+      </div>
+      {% else %}
+      <div class="reply">
+         <div class="reply-user"><a href="reply['username']">{{reply['username']}}</a></div> <span
+            style="font-size: 12pt; width: 750px;">{{reply['message']}}</span>
+      </div>
+      {% endif %}
+      {% endfor %}
+   </div>
+   </div>
+   {% endfor %}
+</body>
+
+
+</html>
